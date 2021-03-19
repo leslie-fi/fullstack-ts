@@ -1,12 +1,12 @@
 <div align="center" id="top"> 
-  <img src="./.github/app.gif" alt="Fullstack Ts" />
+  <img src="./.github/app.gif" alt="Fullstack TS" />
 
   &#xa0;
 
   <!-- <a href="https://fullstackts.netlify.app">Demo</a> -->
 </div>
 
-<h1 align="center">Fullstack Ts</h1>
+<h1 align="center">Fullstack TS</h1>
 
 <p align="center">
   <img alt="Github top language" src="https://img.shields.io/github/languages/top/leslie-fi/fullstack-ts?color=56BEB8">
@@ -24,13 +24,13 @@
   <!-- <img alt="Github stars" src="https://img.shields.io/github/stars/leslie-fi/fullstack-ts?color=56BEB8" /> -->
 </p>
 
-<!-- Status -->
+Status
 
-<!-- <h4 align="center"> 
-	🚧  Fullstack Ts 🚀 Under construction...  🚧
+<h4 align="center"> 
+	🚧  Fullstack TS 🚀 Under construction...  🚧
 </h4> 
 
-<hr> -->
+<hr>
 
 <p align="center">
   <a href="#dart-about">About</a> &#xa0; | &#xa0; 
@@ -46,13 +46,13 @@
 
 ## :dart: About ##
 
-Describe your project
+WIP: First attempt at a Full-Stack Typescript App
 
 ## :sparkles: Features ##
 
-:heavy_check_mark: Feature 1;\
-:heavy_check_mark: Feature 2;\
-:heavy_check_mark: Feature 3;
+:heavy_check_mark: TBD;\
+:heavy_check_mark: TBD;\
+:heavy_check_mark: TBD;
 
 ## :rocket: Technologies ##
 
@@ -72,7 +72,7 @@ The following tools were used in this project:
 
 Before starting :checkered_flag:, you need to have [Git](https://git-scm.com) and [Node](https://nodejs.org/en/) installed.
 
-## :checkered_flag: Starting ##
+<!-- ## :checkered_flag: Starting ##
 
 ```bash
 # Clone this project
@@ -88,14 +88,14 @@ $ yarn
 $ yarn start
 
 # The server will initialize in the <http://localhost:3000>
-```
+``` -->
 
 ## :memo: License ##
 
 This project is under license from MIT. For more details, see the [LICENSE](LICENSE.md) file.
 
 
-Made with :heart: by <a href="https://github.com/leslie-fi" target="_blank">{{YOUR_NAME}}</a>
+Made with :heart: by <a href="https://github.com/leslie-fi" target="_blank">Leslie</a>
 
 &#xa0;
 
