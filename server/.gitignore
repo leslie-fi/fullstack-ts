@@ -1,0 +1,17 @@
+/dist
+/build
+
+/node_modules
+
+.DS_Store
+
+.env
+.env.production
+.env.development
+
+/logs
+*.log
+
+bundle.js
+
+.vscode/
