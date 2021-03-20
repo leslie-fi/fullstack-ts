@@ -10,7 +10,7 @@ import { PostResolver } from './resolvers/post';
 
 const main = async () => {
   const ORM = await MikroORM.init(mikroConfig);
-  await ORM.getMigrator().up();
+  // await ORM.getMigrator().up();
 
   const app = express();
 
