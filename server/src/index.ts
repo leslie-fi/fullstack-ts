@@ -1,4 +1,4 @@
-import 'reflect-metadata'
+import 'reflect-metadata';
 import { MikroORM } from '@mikro-orm/core';
 // import { Post } from './entities/Post';
 import mikroConfig from './mikro-orm.config';
@@ -23,10 +23,11 @@ const main = async () => {
   });
 
   apolloServer.applyMiddleware({ app });
-
-  app.listen(4000, () => {
-    console.log(`app is up and running on port ${process.env.PORT || 4000}`);
-  });
+  app.listen(4000, () =>
+    console.log(
+      `🚀 Server ready at http://localhost:4000${apolloServer.graphqlPath}`
+    )
+  );
 };
 
 main().catch((err) => console.error(err));
