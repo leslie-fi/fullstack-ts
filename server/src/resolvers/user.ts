@@ -44,7 +44,6 @@ export class UserResolver {
     console.log('session:', req.session);
     const user = em.findOne(User, { id: req.session.userId });
 
-    // nullish coalescing vs !not user: if no userId on req.session, return undefined if not exists or use session to call for user in db
     req.session.userId ?? (await user);
     return user;
   }
