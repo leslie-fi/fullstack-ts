@@ -7,6 +7,7 @@ import {
   InputType,
   Mutation,
   ObjectType,
+  Query,
   Resolver,
 } from 'type-graphql';
 import argon2 from 'argon2';
@@ -38,10 +39,20 @@ class UserResponse {
 
 @Resolver()
 export class UserResolver {
+  @Query(() => User, { nullable: true })
+  async me(@Ctx() { req, em }: MyContext) {
+    console.log('session:', req.session);
+    const user = em.findOne(User, { id: req.session.userId });
+
+    // nullish coalescing vs !not user: if no userId on req.session, return undefined if not exists or use session to call for user in db
+    req.session.userId ?? (await user);
+    return user;
+  }
+
   @Mutation(() => UserResponse)
   async register(
     @Arg('options') options: UsernamePasswordInput,
-    @Ctx() { em }: MyContext
+    @Ctx() { req, em }: MyContext
   ): Promise<UserResponse> {
     if (options.username.length <= 2) {
       return {
@@ -69,7 +80,7 @@ export class UserResolver {
       username: options.username,
       password: hashedPassword,
     });
-
+    req.session.userId = user.id;
     try {
       await em.persistAndFlush(user);
     } catch (err) {
@@ -91,7 +102,7 @@ export class UserResolver {
   @Mutation(() => UserResponse)
   async login(
     @Arg('options') options: UsernamePasswordInput,
-    @Ctx() { em }: MyContext
+    @Ctx() { em, req }: MyContext
   ): Promise<UserResponse> {
     const user = await em.findOne(User, {
       username: options.username.toLowerCase(),
@@ -112,6 +123,7 @@ export class UserResolver {
         ],
       };
     }
+    req.session.userId = user.id;
     return { user };
   }
 }
