@@ -1,6 +1,5 @@
 import React from 'react'
-import {Container} from '../components/Container'
-import { Hero } from '../components/Hero'
+import {Container, Hero} from '../components';
 
 
 const Index = () => (

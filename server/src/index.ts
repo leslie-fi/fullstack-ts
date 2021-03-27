@@ -9,6 +9,7 @@ import redis from 'redis';
 import session from 'express-session';
 import connectRedis from 'connect-redis';
 import { isProduction } from './constants';
+import cors from 'cors';
 
 const main = async () => {
   const ORM = await MikroORM.init(mikroConfig);
@@ -19,7 +20,14 @@ const main = async () => {
   const RedisStore = connectRedis(session);
   const redisClient = redis.createClient();
 
-  const { SESSION_SECRET, PORT } = process.env;
+  const { SESSION_SECRET, PORT, CORS_ORIGIN } = process.env;
+
+  app.use(
+    cors({
+      origin: CORS_ORIGIN,
+      credentials: true,
+    })
+  );
 
   app.use(
     session({
@@ -45,7 +53,7 @@ const main = async () => {
     context: ({ req, res }) => ({ em: ORM.em, req, res }),
   });
 
-  apolloServer.applyMiddleware({ app });
+  apolloServer.applyMiddleware({ app, cors: false });
 
   app.listen(PORT, () =>
     console.log(
